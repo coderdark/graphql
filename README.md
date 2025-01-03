@@ -1,6 +1,7 @@
 # Graphql
 
-https://graphql.org/
-https://studio.apollographql.com/public/star-wars-swapi/variant/current/home
+## Resources
++ https://graphql.org/
++ https://studio.apollographql.com/public/star-wars-swapi/variant/current/home
 
 Its a way to query your api service unlike rest where you have multiple uri for each of the resources.  With GraphQL you only have one uri and a query to select the data you need. Good for mobile since you can only select the fields you need to avoid latancy.  
