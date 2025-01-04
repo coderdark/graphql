@@ -44,7 +44,7 @@ query {
   }
 }
 ```
-  + Nested Queries - BECAREFUL with recursive queries, these can bring down your server. See example below.
+  + Nested (Recursive) Queries - You can do nested queries but BECAREFUL with them, these can bring down your server if not careful.
 ```
 query User {
   user {
