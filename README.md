@@ -92,7 +92,7 @@ import { IssuesQuery } from '@/gql/issuesQuery'
 const IssuesPage = () => {
   const [issueName, setIssueName] = useState('')
   const [issueDescription, setIssueDescription] = useState('')
-  const [{ data, error, fetching }, replay] = useQuery({ query: IssuesQuery })
+  const [{ data, error, fetching }, replay] = useQuery({ query: IssuesQuery }) // Replay allows you to recall the query again
 
   const onCreate = async (close) => {
   }
