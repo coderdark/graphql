@@ -15,6 +15,11 @@ Its a way to query your api service unlike rest where you have multiple uri for 
 + You can use Apollo Server to create your queries or mutations and then copy paste in your code.  If using `urql` client, you can use their utility `gql` to interpolate the copied query or mutation from the Apollo Server.
 + When running your site that was setup with GraphQL you can go to `http://localhost:3000/api/graphql` to see the Apollo Studio Server.  This is like `Postman` or `Insomnia` clients
 
+## Features of GraphQL Queries and Mutations
+- Fields
+- Nested Objects
+- Arguments
+
 ## Queries and Mutations (You can use your project url: http://localhost:3000/api/graphql to access the Apollo Server Studio)
 + Query - reads
   + Query example. Queries can have a name or be anonymous
