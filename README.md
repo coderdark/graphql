@@ -51,14 +51,15 @@ mutation Mutation($input: AuthInput!) {
 // Variables/Request
 {
   "input": {
-    "email": "admin@admin.com",
+    "username": "admin@admin.com",
     "password": "password"
   }
 }
 ```
 + Using GraphQL in React
-  + Use gql to interpolate (template tag) your GraphQL query or mutation, see below.
+  + Use `gql` utility from `urql` to interpolate (template tag) your GraphQL query or mutation, see below.
 ```
+//GraphQL Mutation
 import { gql } from '@urql/next'
 
 export const MyMutation = gql`
@@ -68,5 +69,56 @@ export const MyMutation = gql`
     }
   }
 `
+
+//React Code Implementation
+import { useState } from 'react'
+import { useMutation } from 'urql'
+import { SigninMutation } from './gql/signinMutation'
+
+const SignInPage = () => {
+  const [state, setState] = useState({ password: '', username: '' })
+  const router = useRouter()
+  const [signInResult, signIn] = useMutation(SigninMutation)
+
+  const handleSignIn = async (e) => {
+    e.preventDefault()
+    const result = await signIn({ input: state })
+
+    if(result.data.signIn){
+      setToken(result.data.createUser.token) // you can set token in localstorage
+      router.push('/')
+    }
+  }
+
+  return (
+    <div>
+      <h1>Sign In</h1>
+      <form onSubmit={handleSignin}>
+        <div>
+          <input
+            value={state.email}
+            onValueChange={(v) => setState((s) => ({ ...s, email: v }))}
+            placeholder="Email"
+          />
+        </div>
+        <div>
+          <input
+            value={state.password}
+            onValueChange={(v) => setState((s) => ({ ...s, password: v }))}
+            placeholder="Password"
+            type="password"
+          />
+        </div>
+        <div>
+          <button type="submit">
+            SignIn
+          </Button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+export default SignInPage
 ```
   +
