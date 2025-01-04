@@ -2,6 +2,7 @@
 
 ## Resources
 + https://graphql.org/
++ https://graphql.org/learn/
 + https://studio.apollographql.com/public/star-wars-swapi/variant/current/home
 + https://caisy.io/blog/when-to-use-trpc-or-graphql
 + https://commerce.nearform.com/open-source/urql/docs/
