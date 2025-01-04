@@ -4,12 +4,18 @@
 + https://graphql.org/
 + https://studio.apollographql.com/public/star-wars-swapi/variant/current/home
 
-Its a way to query your api service unlike rest where you have multiple uri for each of the resources.  With GraphQL you only have one uri and a query to select the data you need. Good for mobile since you can only select the fields you need to avoid latancy.  
+Its a way to query your api service unlike rest where you have multiple uri for each of the resources.  With GraphQL you only have one uri and a query to select the data you need. Good for mobile since you can only select the fields you need to avoid latancy. 
 
-## Queries
+## GraphQL
++ Everything is a POST request - Unlike REST where you have POST, GET, UPDATE, DELETE
++ Everything is a 200 Status Code
++ Check payload of data to see if is a success or an error
++ We are not using Fetch but a GraphQL client (there are many of them).  There is Apollo for Client and Server.  The Apollo client is hard and confusing at times.  There is an simpler tool, Urql (https://github.com/urql-graphql/urql)
++ What is a GraphQL client? It is a wrapper for fetch. Similar to SWR (NextJS) or React-Query.
+
+## Queries and Mutations
 + Query - reads
-+ Mutation - writes
-+ Can have a name or be anonymous
+  + Query example. Queries can have a name or be anonymous
 ```
 //With Name
 query User {
@@ -31,9 +37,21 @@ query {
   }
 }
 ```
-+ Everything is a POST request - Unlike REST where you have POST, GET, UPDATE, DELETE
-+ Everything is a 200 Status Code
-+ Check payload of data to see if is a success or an error
-+ We are not using Fetch but a GraphQL client (there are many of them).  There is Apollo for Client and Server.  The Apollo client is hard and confusing at times.  There is an simpler tool, Urql (https://github.com/urql-graphql/urql)
-+ What is a GraphQL client? It is a wrapper for fetch. Similar to SWR (NextJS) or React-Query.
-+ ! in GraphQL means not null.  The value is expected.
++ Mutation - writes
+  + Mutation Example. The `$input` is an argument (can be named whatever you want) passed in to the mutation. `!` in `AuthInput!` means not null, the value is expected.  The request name has to be named the same as the argument passed to the mutation.  In this case the argument to the mutation is `$input` the variable/request name has to be `input`.
+```
+mutation Mutation($input: AuthInput!) {
+  createUser(input: $input) {
+    token
+    id
+  }
+}
+
+// Variables/Request
+{
+  "input": {
+    "email": "admin@admin.com",
+    "password": "password"
+  }
+}
+```
