@@ -55,3 +55,17 @@ mutation Mutation($input: AuthInput!) {
   }
 }
 ```
++ Using GraphQL in React
+  + Use gql to interpolate (template tag) your GraphQL query or mutation, see below.
+```
+import { gql } from '@urql/next'
+
+export const MyMutation = gql`
+  mutation Mutation($input: AuthInput!) {
+    createUser(input: $input) {
+      token
+    }
+  }
+`
+```
+  +
