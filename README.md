@@ -14,29 +14,6 @@ Its a way to query your api service unlike rest where you have multiple uri for 
 + What is a GraphQL client? It is a wrapper for fetch. Similar to SWR (NextJS) or React-Query.
 + You can use Apollo Server to create your queries or mutations and then copy paste in your code.  If using `urql` client, you can use their utility `gql` to interpolate the copied query or mutation from the Apollo Server.
 + When running your site that was setup with GraphQL you can go to `http://localhost:3000/api/graphql` to see the Apollo Studio Server.  This is like `Postman` or `Insomnia` clients
-+ BECAREFUL with recursive queries, these can bring down your server. See example below.
-```
-query User {
-  user {
-    id
-    created
-    title
-    name
-    user {
-      id
-      created
-      title
-      name
-        user {
-          id
-          created
-          title
-          name
-      }
-    }
-  }
-}
-```
 
 ## Features of GraphQL Queries and Mutations
 - Fields
@@ -64,6 +41,29 @@ query {
     created
     title
     name
+  }
+}
+```
+  + Nested Queries - BECAREFUL with recursive queries, these can bring down your server. See example below.
+```
+query User {
+  user {
+    id
+    created
+    title
+    name
+    user {
+      id
+      created
+      title
+      name
+        user {
+          id
+          created
+          title
+          name
+      }
+    }
   }
 }
 ```
