@@ -212,3 +212,4 @@ const SignInPage = () => {
 export default SignInPage
 ```
 + URQL
+  + How URQL updates in cache: https://commerce.nearform.com/open-source/urql/docs/graphcache/cache-updates/
