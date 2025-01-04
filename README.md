@@ -13,8 +13,9 @@ Its a way to query your api service unlike rest where you have multiple uri for 
 + We are not using Fetch but a GraphQL client (there are many of them).  There is Apollo for Client and Server.  The Apollo client is hard and confusing at times.  There is an simpler tool, Urql (https://github.com/urql-graphql/urql)
 + What is a GraphQL client? It is a wrapper for fetch. Similar to SWR (NextJS) or React-Query.
 + You can use Apollo Server to create your queries or mutations and then copy paste in your code.  If using `urql` client, you can use their utility `gql` to interpolate the copied query or mutation from the Apollo Server.
++ When running your site that was setup with GraphQL you can go to `http://localhost:3000/api/graphql` to see the Apollo Studio Server.  This is like `Postman` or `Insomnia` clients
 
-## Queries and Mutations
+## Queries and Mutations (You can use your project url: http://localhost:3000/api/graphql to access the Apollo Server Studio)
 + Query - reads
   + Query example. Queries can have a name or be anonymous
 ```
