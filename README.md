@@ -25,6 +25,8 @@ Its a way to query your api service unlike rest where you have multiple uri for 
 - Nested Objects
 - Arguments
 
+# GraphQL Client Side
+
 ## Queries and Mutations (You can use your project url: http://localhost:3000/api/graphql to access the Apollo Server Studio)
 + Query - reads
   + Query example. Queries can have a name or be anonymous
