@@ -29,3 +29,5 @@ query {
   }
 }
 ```
++ Everything is a POST request
++ Everything is a 200 Status Code
