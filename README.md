@@ -29,5 +29,5 @@ query {
   }
 }
 ```
-+ Everything is a POST request
++ Everything is a POST request - Unlike REST where you have POST, GET, UPDATE, DELETE
 + Everything is a 200 Status Code
