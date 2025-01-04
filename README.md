@@ -83,6 +83,7 @@ export const IssuesQuery = gql`
     }
   }
 `
+
 //GraphQL Query In React Code
 import { useMutation, useQuery } from '@urql/next'
 import { useState } from 'react'
