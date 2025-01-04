@@ -68,6 +68,62 @@ query User {
   }
 }
 ```
+  + Using GraphQL Queries in React
+```
+//GraphQL Query
+import { gql } from '@urql/next'
+
+export const IssuesQuery = gql`
+  query IssuesQuery {
+    issues {
+      content
+      id
+      name
+      status
+    }
+  }
+`
+//GraphQL Query In React Code
+import { useMutation, useQuery } from '@urql/next'
+import { useState } from 'react'
+import Issue from '../_components/Issue'
+import { IssuesQuery } from '@/gql/issuesQuery'
+
+const IssuesPage = () => {
+  const [issueName, setIssueName] = useState('')
+  const [issueDescription, setIssueDescription] = useState('')
+  const [{ data, error, fetching }, replay] = useQuery({ query: IssuesQuery })
+
+  const onCreate = async (close) => {
+  }
+
+  function handleOnOpen(){
+    const issueNameAnswer = window.prompt("Issue Name");
+    setIssueName(issueNameAnswer);
+
+    const issueDescriptionAnswer = window.prompt("Issue Description");
+    setIssueDescription(issueDescriptionAnswer);
+  }
+
+  return (
+    <div>
+      <header>All Issues</header>
+      <button onClick={onOpen}>+</button>
+      {fetching && <Spinner />}
+      {error && <div>Error</div>}
+      {data &&
+        data.issues.map((issue) => (
+          <div key={issue.id}>
+            <Issue issue={issue} />
+          </div>
+        ))}
+    </div>
+  )
+}
+
+export default IssuesPage
+
+```
 + Mutation - writes
   + Mutation Example. The `$input` is an argument (can be named whatever you want) passed in to the mutation. `!` in `AuthInput!` means not null, the value is expected.  The request name has to be named the same as the argument passed to the mutation.  In this case the argument to the mutation is `$input` the variable/request name has to be `input`.
 ```
@@ -86,7 +142,7 @@ mutation Mutation($input: AuthInput!) {
   }
 }
 ```
-+ Using GraphQL in React
++ Using GraphQL Mutations in React
   + Use `gql` utility from `urql` to interpolate (template tag) your GraphQL query or mutation, see below.
 ```
 //GraphQL Mutation
@@ -100,7 +156,7 @@ export const MyMutation = gql`
   }
 `
 
-//React Code Implementation
+//GraphQL Mutation in React Code
 import { useState } from 'react'
 import { useMutation } from 'urql'
 import { SigninMutation } from './gql/signinMutation'
