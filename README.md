@@ -22,8 +22,8 @@ Its a way to query your api service unlike rest where you have multiple uri for 
 //With Name
 query User {
   user {
-    id
-    created
+    id // <==! This names can change, for example you can do userId: id
+    created: createdDate // <==! your frontend can call this field created but this wont change your backend, which it is still createdDate
     title
     name
   }
