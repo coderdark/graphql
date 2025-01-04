@@ -31,3 +31,4 @@ query {
 ```
 + Everything is a POST request - Unlike REST where you have POST, GET, UPDATE, DELETE
 + Everything is a 200 Status Code
++ Check payload of data to see if is a success or an error
